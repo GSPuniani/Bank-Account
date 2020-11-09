@@ -13,13 +13,13 @@ class BankAccount:
         # The account balance starts at $0
         self.balance = 0
 
-    # The `deposit` method adds the input `amount` to `balance` and prints out the amount deposited
+    # The `deposit()` method adds the input `amount` to `balance` and prints out the amount deposited
     def deposit(self, amount):
         self.balance += amount
         # Use .2f below to specify the float to have exactly 2 digits after the decimal point
         print(f"Amount Deposited: ${amount:.2f}")
 
-    # The `withdraw` method subtracts the input `amount` from `balance` and prints out the amount withdrawn
+    # The `withdraw()` method subtracts the input `amount` from `balance` and prints out the amount withdrawn
     # Attempted overdrafts will result in a printed message alerting the user and a charge of $10
     def withdraw(self, amount):
         if amount > self.balance:
@@ -27,16 +27,31 @@ class BankAccount:
             print("Insufficient funds. Your account has been charged an overdraft fee of $10.")
         else:
             self.balance -= amount
-            # Use .2f below to specify the float to have exactly 2 digits after the decimal point
             print(f"Amount Withdrawn: ${amount:.2f}")
 
-    # The `get_balance` method prints a user-friendly message with the account balance and also returns the balance
+    # The `get_balance()` method prints a user-friendly message with the account balance and also returns the balance
     def get_balance(self):
-        print("Current account balance: ${self.balance:.2f}")
+        print(f"Current account balance: ${self.balance:.2f}")
         return self.balance
+
+    # The `add_interest()` method adds montly interest to the account balance (0.083% per month)
+    def add_interest(self):
+        self.balance *= 1.00083
+
+    # The `print_receipt()` method prints a receipt with the full name, sensitzied account number, routing number, and balance
+    def print_receipt(self):
+        print(self.full_name)
+        # Sensitize the account number before printing by displaying the first four digits as asterisks
+        self.account_number = str(self.account_number)
+        print(f"Account No.: ****{self.account_number[4:]}")
+        print(f"Routing No.: {self.routing_number}")
+        self.get_balance()
 
 
 joi = BankAccount("Joi Anderson")
 print(joi.account_number)
-joi.deposit(9.87)
-joi.withdraw(9)
+joi.deposit(9000.87)
+joi.withdraw(145)
+joi.get_balance()
+joi.add_interest()
+joi.print_receipt()
