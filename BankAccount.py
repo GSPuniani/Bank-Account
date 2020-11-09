@@ -48,10 +48,34 @@ class BankAccount:
         self.get_balance()
 
 
+# Example 1
 joi = BankAccount("Joi Anderson")
+print(joi.full_name)
 print(joi.account_number)
 joi.deposit(9000.87)
 joi.withdraw(145)
 joi.get_balance()
 joi.add_interest()
 joi.print_receipt()
+print()
+
+# Example 2
+elon = BankAccount("Elon Musk")
+print(elon.full_name)
+print(elon.account_number)
+elon.deposit(70932156.87)
+elon.add_interest()
+elon.withdraw(69420)
+elon.get_balance()
+elon.print_receipt()
+print()
+
+# Example 3
+kanye = BankAccount("Kanye West")
+print(kanye.full_name)
+print(kanye.account_number)
+kanye.add_interest()
+kanye.deposit(808.00)
+kanye.withdraw(53000000)
+kanye.get_balance()
+kanye.print_receipt()
