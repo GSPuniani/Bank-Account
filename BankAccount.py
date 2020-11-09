@@ -30,6 +30,11 @@ class BankAccount:
             # Use .2f below to specify the float to have exactly 2 digits after the decimal point
             print(f"Amount Withdrawn: ${amount:.2f}")
 
+    # The `get_balance` method prints a user-friendly message with the account balance and also returns the balance
+    def get_balance(self):
+        print("Current account balance: ${self.balance:.2f}")
+        return self.balance
+
 
 joi = BankAccount("Joi Anderson")
 print(joi.account_number)
