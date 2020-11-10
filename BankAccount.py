@@ -1,7 +1,7 @@
 import random
 
 class BankAccount:
-    # The routing number is a 9-digit number that is the same for all bank account
+    # The routing number is a 9-digit number that is the same for all bank accounts
     routing_number = 987654321
 
     def __init__(self, full_name):
@@ -41,7 +41,7 @@ class BankAccount:
     # The `print_receipt()` method prints a receipt with the full name, sensitzied account number, routing number, and balance
     def print_receipt(self):
         print(self.full_name)
-        # Sensitize the account number before printing by displaying the first four digits as asterisks
+        # Censor the account number before printing by displaying the first four digits as asterisks
         self.account_number = str(self.account_number)
         print(f"Account No.: ****{self.account_number[4:]}")
         print(f"Routing No.: {self.routing_number}")
@@ -56,6 +56,7 @@ joi.deposit(9000.87)
 joi.withdraw(145)
 joi.get_balance()
 joi.add_interest()
+print("\nReceipt:")
 joi.print_receipt()
 print()
 
@@ -63,10 +64,11 @@ print()
 elon = BankAccount("Elon Musk")
 print(elon.full_name)
 print(elon.account_number)
-elon.deposit(70932156.87)
+elon.deposit(70214932156.87)
 elon.add_interest()
 elon.withdraw(69420)
 elon.get_balance()
+print("\nReceipt:")
 elon.print_receipt()
 print()
 
@@ -75,7 +77,9 @@ kanye = BankAccount("Kanye West")
 print(kanye.full_name)
 print(kanye.account_number)
 kanye.add_interest()
+kanye.get_balance()
 kanye.deposit(808.00)
 kanye.withdraw(53000000)
 kanye.get_balance()
+print("\nReceipt:")
 kanye.print_receipt()
